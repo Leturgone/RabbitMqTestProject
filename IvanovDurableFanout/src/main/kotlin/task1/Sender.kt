@@ -19,26 +19,18 @@ fun main() {
             val queueName = "ikbo-07_ivanov_durable"
 
             // durable - очередь сохраняется, устойчивая
-            channel.queueDeclare(queueName,
-                true,
-                false,
-                false,
-                null)
+            channel.queueDeclare(queueName, true, false, false, null)
 
             while (true) {
+
                 print("Сообщение: ")
                 val input = readLine() ?: break
                 if (input.equals("exit", ignoreCase = true)) {
                     break
                 }
-                // Отправка сообщения
-                channel.basicPublish(
-                    "",
-                    queueName,
-                    null,
-                    input.toByteArray()
-                )
 
+                // Отправка сообщения
+                channel.basicPublish("", queueName, null, input.toByteArray())
                 println("отправили: $input")
             }
         }

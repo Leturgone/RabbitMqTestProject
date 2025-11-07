@@ -28,11 +28,7 @@ fun main() {
             val queueName = "ikbo-07_ivanov_durable"
 
             // durable - очередь сохраняется, устойчивая
-            channel.queueDeclare(queueName,
-                true,
-                false,
-                false,
-                null)
+            channel.queueDeclare(queueName, true, false, false, null)
 
             // Получение сообщения
             val deliverCallback = DeliverCallback { _, delivery ->
@@ -42,11 +38,8 @@ fun main() {
                 println("Обработали: $message")
             }
 
-            val consumerTag  = channel.basicConsume(
-                queueName,
-                true,
-                deliverCallback,
-                { _ -> })
+            val consumerTag  = channel.basicConsume(queueName, true,
+                deliverCallback, { _ -> })
 
             println("Чтобы выйти enter")
             readLine()
