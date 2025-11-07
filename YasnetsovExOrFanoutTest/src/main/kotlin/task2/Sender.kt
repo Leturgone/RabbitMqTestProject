@@ -26,7 +26,6 @@ fun main() {
                     break
                 }
 
-
                 // Отправка сообщения
                 channel.basicPublish(
                     "fanout_yasnetsov",
