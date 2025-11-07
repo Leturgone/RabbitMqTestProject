@@ -1,21 +1,17 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '2.2.20'
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
 }
 
-group = 'org.example'
-version = '1.0-SNAPSHOT'
+group = "com.example"
+version = "0.0.1"
 
-repositories {
-    mavenCentral()
+application {
+    mainClass = "io.ktor.server.netty.EngineMain"
 }
 
 dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
-}
-
-test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(20)
+    implementation('ch.qos.logback:logback-classic:1.5.13')
+    implementation('com.rabbitmq:amqp-client:5.18.0')
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 }
