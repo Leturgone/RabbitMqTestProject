@@ -25,13 +25,13 @@ fun main() {
         connection.createChannel().use {channel ->
 
             // Создание очереди
-            val queueName = "ikbo-07_yasnetsov_exclusive"
+            val queueName = "ikbo-07_yasnetsov_durable"
 
-            // exclusive - эксклюзивная, после отключение потребителя очередь будет удалена, может быть только один потребитель и поставщик
-            channel.queueDeclare(queueName, false, true, false, null)
+            // требуется сохранение сообщений, значит обозначаем durable
+            channel.queueDeclare(queueName, true, false, false, null)
 
             // Объявление обменника fanout, шлет во все очереди
-            val exchangeName = "fanout_exchange"
+            val exchangeName = "fanout_yasnetsov"
             channel.exchangeDeclare(exchangeName, "fanout", true);
 
             // Связываем очередь с обменником

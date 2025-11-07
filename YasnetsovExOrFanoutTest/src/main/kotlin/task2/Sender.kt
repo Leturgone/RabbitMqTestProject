@@ -29,7 +29,7 @@ fun main() {
 
                 // Отправка сообщения
                 channel.basicPublish(
-                    "fanout_exchange",
+                    "fanout_yasnetsov",
                     "",
                     MessageProperties.PERSISTENT_BASIC,
                     input.toByteArray()
