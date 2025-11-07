@@ -28,7 +28,7 @@ fun main() {
                     MessageProperties.PERSISTENT_BASIC,
                     input.toByteArray()
                 )
-                println("message sent: $input")
+                println("Отправили $input")
             }
         }
     }

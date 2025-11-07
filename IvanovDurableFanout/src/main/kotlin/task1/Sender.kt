@@ -31,7 +31,7 @@ fun main() {
 
                 // Отправка сообщения
                 channel.basicPublish("", queueName, null, input.toByteArray())
-                println("отправили: $input")
+                println("Отправили: $input")
             }
         }
     }
