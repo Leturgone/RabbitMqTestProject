@@ -7,9 +7,10 @@ import kotlinx.coroutines.runBlocking
 
 
 suspend fun process(message: String){
-    val count = message.count{it == '-'}.toLong()
-    delay(count * 1000L)
+    val count = message.count{it == '-'}
+    delay(count.toLong()* 1000L )
 }
+
 fun main() {
 
     // Создание фабрики соединений
