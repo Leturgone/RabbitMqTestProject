@@ -26,13 +26,13 @@ fun main() {
         connection.createChannel().use {channel ->
 
             // Создание очереди
-            val queueName = "ikbo-07_jnakin_durable_topic"
+            val queueName = "ikbo-07_ivanov_durable_topic"
 
             // durable чтобы сохранялось
             channel.queueDeclare(queueName, true, false, false, null)
 
             // Объявление обменника topic, нужны ключи маршрутизации, управление отправкой сообщений по очередям
-            val exchangeName = "topic_jnakin"
+            val exchangeName = "topic_ivanov"
             channel.exchangeDeclare(exchangeName, "topic", true);
 
             // Связываем очередь с обменником, добавляем ключ для получения конкретных сообщений

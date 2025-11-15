@@ -30,7 +30,7 @@ fun main() {
 
                 // Отправка сообщения, сохранение - MessageProperties.PERSISTENT_BASIC
                 channel.basicPublish(
-                    "topic_jnakin",
+                    "topic_ivanov",
                     key[0],
                     MessageProperties.PERSISTENT_BASIC,
                     message[1].toByteArray()
